@@ -8,7 +8,9 @@ Terraform module which integrate Grafana Agent into existent ECS Cluster
 
 module "grafana_agnet" {
 
-  source = "/Users/xente/Documents/Colba/Papers/terraform/modules/ecs_prometheus_grafana_cloud"
+  source  = "xente/ecs-grafana-agent/aws"
+  version = "0.1.0"
+  
   name = "my-grafana-agent"
   ecs_cluster_id = aws_ecs_cluster.current.id
   grafana_credentials_username  = "MY_USER"
