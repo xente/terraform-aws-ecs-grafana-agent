@@ -1,0 +1,24 @@
+server:
+  log_level: info
+
+metrics:
+  global:
+    scrape_interval: 1m
+    remote_write:
+      - url:  ${url}
+        basic_auth:
+          username: ${username}
+          password: ${password}
+        write_relabel_configs:
+        - source_labels: [__name__]
+          regex: ${keep_label_regex}
+          action: "keep"
+
+  configs:
+    - name: grafana-core
+      host_filter: false
+      scrape_configs:
+        - job_name: ecs
+          file_sd_configs:
+            - files:
+                - /output/ecs_file_sd.yml
