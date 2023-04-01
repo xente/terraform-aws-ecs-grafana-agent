@@ -6,7 +6,7 @@ Terraform module which integrate Grafana Agent into existent ECS Cluster
 
 ```hcl
 
-module "grafana_agnet" {
+module "grafana_agent" {
 
   source  = "xente/ecs-grafana-agent/aws"
   version = "0.1.0"
@@ -25,7 +25,7 @@ resource "aws_ecs_cluster" "sample" {
 
 resource "aws_ecs_cluster_capacity_providers" "sample" {
   cluster_name       = aws_ecs_cluster.sample.name
-  capacity_providers = [module.grafana_agnet.ecs_agent_capacity_provider_name]
+  capacity_providers = [module.grafana_agent.ecs_agent_capacity_provider_name]
 }
 
 
