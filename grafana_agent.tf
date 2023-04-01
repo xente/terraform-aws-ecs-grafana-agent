@@ -70,15 +70,6 @@ resource "aws_ecs_task_definition" "grafana_agent" {
           sourceVolume  = "agent_config"
         }
       ]
-
-      logConfiguration = {
-        logDriver = "awslogs"
-        options = {
-          "awslogs-group" : "/ecs/grafana-agent-ecs",
-          "awslogs-region" : data.aws_region.current.name,
-          "awslogs-stream-prefix" : "ecs"
-        }
-      }
     },
     {
       name      = "prometheus-ecs-discovery"
@@ -102,14 +93,6 @@ resource "aws_ecs_task_definition" "grafana_agent" {
           "value" : data.aws_region.current.name
         }
       ]
-      logConfiguration = {
-        logDriver = "awslogs"
-        options = {
-          "awslogs-group" : "/ecs/grafana-agent-ecs",
-          "awslogs-region" : data.aws_region.current.name,
-          "awslogs-stream-prefix" : "ecs"
-        }
-      }
     }
 
   ])

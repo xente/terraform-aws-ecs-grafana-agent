@@ -5,4 +5,4 @@ echo ECS_CLUSTER=${ecs_cluster} >> /etc/ecs/ecs.config
 sudo yum install -y awscli
 
 #Download monitoring resources
-aws s3 sync s3://${s3_resources} /ecs/monitoring-resources/ 
+aws s3 sync s3://${s3_resources} /ecs/

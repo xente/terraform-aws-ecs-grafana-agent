@@ -5,5 +5,5 @@ output "ecs_agent_capacity_provider_name" {
 
 output "ecs_agent_service_name" {
   description = "Grafana ECS services name"
-  value = aws_ecs_service.agent.name
+  value       = aws_ecs_service.agent.name
 }
